@@ -55,5 +55,3 @@ class PilhaChar {
         return top == MAX - 1;
     }
 }
-
-
