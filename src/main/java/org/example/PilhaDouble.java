@@ -55,3 +55,4 @@ class PilhaDouble {
         return top == MAX - 1;
     }
 }
+

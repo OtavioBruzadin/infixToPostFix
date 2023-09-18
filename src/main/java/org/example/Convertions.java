@@ -78,4 +78,11 @@ public class Convertions {
         return result;
 
     }
+
+    String changeLetterToNum(int[] num , String equation, char[] letters){
+        for(int i = 0; i<= letters.length; i++){
+               equation= equation.replace(letters[i],(char) num[i]);
+        }
+        return equation;
+    }
 }
