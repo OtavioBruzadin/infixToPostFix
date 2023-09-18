@@ -25,14 +25,9 @@ class Main{
         System.out.println("The Postfix of the given Infix Expression is: "+result);
 
         String postFixWithNumbers = changeLetterToNum(nums,result,letters);
-        System.out.println("The Infix Expression with numbers is: "+postFixWithNumbers);
+        System.out.println("The PostFix Expression with numbers is: "+postFixWithNumbers);
 
-
-
-
-
-        String postfix = "10 20 30 * + 40 -";
         double value = evaluate(postFixWithNumbers);
-        System.out.println(value);
+        System.out.println("The Result is: "+value);
     }
 }
