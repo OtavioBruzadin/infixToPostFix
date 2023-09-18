@@ -2,9 +2,10 @@ package org.example;
 
 // Java code to convert infix expression to postfix
 
-import static org.example.Convertions.covertInfixToPostfix;
+import java.util.Arrays;
+
+import static org.example.Convertions.*;
 import static org.example.Evaluate.PostfixEvaluation.evaluate;
-import static org.example.Convertions.changeLetterToNum;
 
 
 class Main{
@@ -29,5 +30,9 @@ class Main{
 
         double value = evaluate(postFixWithNumbers);
         System.out.println("The Result is: "+value);
+
+         System.out.println(Arrays.toString(createVariableArray("((a+(b*c))-d)")));
+
+
     }
 }

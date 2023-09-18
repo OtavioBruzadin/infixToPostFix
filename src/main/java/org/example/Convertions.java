@@ -86,5 +86,16 @@ public class Convertions {
         return equation;
     }
 
+    static String[] createVariableArray(String equation){
+        String[] variableArray = new String[equation.length()];
+        int nOfVariables = 0;
+        for (int i = 0; i < equation.length(); i++) {
+            if(Character.isLetter(equation.charAt(i))){
+                variableArray[nOfVariables]= String.valueOf(equation.charAt(i));
+                nOfVariables++;
+            }
+        }
+        return variableArray;
+    }
 
 }
