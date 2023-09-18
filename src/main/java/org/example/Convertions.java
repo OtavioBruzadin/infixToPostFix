@@ -79,10 +79,12 @@ public class Convertions {
 
     }
 
-    String changeLetterToNum(int[] num , String equation, char[] letters){
-        for(int i = 0; i<= letters.length; i++){
-               equation= equation.replace(letters[i],(char) num[i]);
+    static String changeLetterToNum(String[] num , String equation, String[] letters){
+        for(int i = 0; i<= letters.length - 1; i++){
+               equation= equation.replace(letters[i],num[i]+" ");
         }
         return equation;
     }
+
+
 }
