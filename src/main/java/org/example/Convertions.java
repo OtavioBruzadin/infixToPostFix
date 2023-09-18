@@ -1,5 +1,9 @@
 package org.example;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 public class Convertions {
     static boolean checkIfOperand(char ch)
     {
@@ -87,15 +91,34 @@ public class Convertions {
     }
 
     static String[] createVariableArray(String equation){
-        String[] variableArray = new String[equation.length()];
+        List<String> variableList = new ArrayList<>();
         int nOfVariables = 0;
         for (int i = 0; i < equation.length(); i++) {
             if(Character.isLetter(equation.charAt(i))){
-                variableArray[nOfVariables]= String.valueOf(equation.charAt(i));
-                nOfVariables++;
+                variableList.add(String.valueOf(equation.charAt(i)));
+
             }
         }
-        return variableArray;
+        return turnListIntoArray(variableList);
+    }
+
+    static String[] turnListIntoArray(List<String> list){
+        String[] array = new String[list.size()];
+        for (int i = 0; i < list.size() ; i++) {
+            array[i]= list.get(i);
+        }
+        return array;
+    }
+
+    static String[] assignValuesToLetterVariable(String[] variables){
+        Scanner scanner = new Scanner(System.in);
+        String[] variableValuesArray = new String[variables.length];
+        for (int i = 0; i < variables.length ; i++) {
+            System.out.println("Enter the value of variable: "+variables[i]);
+            String variableValue = scanner.nextLine();
+            variableValuesArray[i]=variableValue;
+        }
+        return variableValuesArray;
     }
 
 }

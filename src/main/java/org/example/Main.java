@@ -12,27 +12,28 @@ class Main{
 
     public static void main(String[] args)
     {
-        String[] nums = {"10","20","30","40"};
-        String[] letters = {"a","b","c","d"};
 
-        String infixExpression = "((a+(b*c))-d)";
+        String infixExpression = "((a+(B*c))-D)";
+
         System.out.println("The Infix Expression is: "+infixExpression);
 
-        String infixWithNumbers = changeLetterToNum(nums,infixExpression,letters);
+        String[] variables = createVariableArray(infixExpression);
+        String[] variableValues = assignValuesToLetterVariable(variables);
+
+
+        String infixWithNumbers = changeLetterToNum(variableValues,infixExpression,variables);
         System.out.println("The Infix Expression with numbers is: "+infixWithNumbers);
 
 
-        String result = String.valueOf(covertInfixToPostfix(infixExpression));
-        System.out.println("The Postfix of the given Infix Expression is: "+result);
+        String convertedToPostFix = String.valueOf(covertInfixToPostfix(infixExpression));
+        System.out.println("The Postfix of the given Infix Expression is: "+convertedToPostFix);
 
-        String postFixWithNumbers = changeLetterToNum(nums,result,letters);
-        System.out.println("The PostFix Expression with numbers is: "+postFixWithNumbers);
 
-        double value = evaluate(postFixWithNumbers);
-        System.out.println("The Result is: "+value);
+        String PostFixWhitNumbers = changeLetterToNum(variableValues,convertedToPostFix,variables);
+        System.out.println("The Postfix of the given Infix Expression with numbers is: "+PostFixWhitNumbers);
 
-         System.out.println(Arrays.toString(createVariableArray("((a+(b*c))-d)")));
-
+        double result = evaluate(PostFixWhitNumbers);
+        System.out.println("The Result is: "+result);
 
     }
 }
