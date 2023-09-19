@@ -20,6 +20,13 @@ class Main{
         String[] variableValues = new String[0];
         String PostFixWhitNumbers = null;
         while (section != 5) {
+            System.out.println("1. Entrada da expressão aritmética na notação infixa.\n" +
+                    "2. Entrada dos valores numéricos associados às variáveis.\n" +
+                    "3. Conversão da expressão, da notação infixa para a notação posfixa, e exibição da expressão\n" +
+                    "convertida para posfixa.\n" +
+                    "4. Avaliação da expressão (apresentação do resultado do cálculo, mostrando a expressão e os\n" +
+                    "valores das variáveis).\n" +
+                    "5. Encerramento do programa.");
             System.out.println("Qual secao dexeja acessar?: ");
             section = scanner.nextInt();
 
