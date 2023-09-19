@@ -3,6 +3,7 @@ package org.example;
 // Java code to convert infix expression to postfix
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 import static org.example.Convertions.*;
 import static org.example.Evaluate.PostfixEvaluation.evaluate;
@@ -12,28 +13,43 @@ class Main{
 
     public static void main(String[] args)
     {
+        int section = 0;
+        Scanner scanner = new Scanner(System.in);
+        String  infixExpression = "";
+        String[] variables = new String[0];
+        String[] variableValues = new String[0];
+        String PostFixWhitNumbers = null;
+        while (section != 5) {
+            System.out.println("Qual secao dexeja acessar?: ");
+            section = scanner.nextInt();
 
-        String infixExpression = "((a+(B*c))-D)";
+            if (section == 1) {
+                // exemplo : ((a+(B*c))-D)
+                System.out.println("Qual o valor da expressao infixa ?: ");
+                String infixExpressionInput = scanner.next();
+                infixExpression = infixExpressionInput;
+                System.out.println("The Infix Expression is: " + infixExpression);
 
-        System.out.println("The Infix Expression is: "+infixExpression);
+            }
+            if (section == 2) {
 
-        String[] variables = createVariableArray(infixExpression);
-        String[] variableValues = assignValuesToLetterVariable(variables);
+                variables = createVariableArray(infixExpression);
+                System.out.println(Arrays.toString(variables));
+                variableValues = assignValuesToLetterVariable(variables);
+                String infixWithNumbers = changeLetterToNum(variableValues, infixExpression, variables);
+                System.out.println("The Infix Expression with numbers is: " + infixWithNumbers);
+            }
+            if (section == 3) {
+                String convertedToPostFix = String.valueOf(covertInfixToPostfix(infixExpression));
+                System.out.println("The Postfix of the given Infix Expression is: " + convertedToPostFix);
 
-
-        String infixWithNumbers = changeLetterToNum(variableValues,infixExpression,variables);
-        System.out.println("The Infix Expression with numbers is: "+infixWithNumbers);
-
-
-        String convertedToPostFix = String.valueOf(covertInfixToPostfix(infixExpression));
-        System.out.println("The Postfix of the given Infix Expression is: "+convertedToPostFix);
-
-
-        String PostFixWhitNumbers = changeLetterToNum(variableValues,convertedToPostFix,variables);
-        System.out.println("The Postfix of the given Infix Expression with numbers is: "+PostFixWhitNumbers);
-
-        double result = evaluate(PostFixWhitNumbers);
-        System.out.println("The Result is: "+result);
-
+                PostFixWhitNumbers = changeLetterToNum(variableValues, convertedToPostFix, variables);
+                System.out.println("The Postfix of the given Infix Expression with numbers is: " + PostFixWhitNumbers);
+            }
+            if(section == 4) {
+                double result = evaluate(PostFixWhitNumbers);
+                System.out.println("The Result is: " + result);
+            }
+        }
     }
 }
