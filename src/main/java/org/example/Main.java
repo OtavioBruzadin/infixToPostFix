@@ -1,7 +1,5 @@
 package org.example;
 
-// Java code to convert infix expression to postfix
-
 import java.util.Arrays;
 import java.util.Scanner;
 
