@@ -119,7 +119,7 @@ public class Convertions {
         Scanner scanner = new Scanner(System.in);
         String[] variableValuesArray = new String[variables.length];
         for (int i = 0; i < variables.length ; i++) {
-            System.out.println("Enter the value of variable: "+variables[i]);
+            System.out.println("Qual o valor da variavel "+variables[i]+" ?:");
             String variableValue = scanner.nextLine();
             variableValuesArray[i]=variableValue;
         }
