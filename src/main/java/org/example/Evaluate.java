@@ -20,6 +20,8 @@ public class Evaluate {
                         case '*': pilhaDouble.push(pilhaDouble.pop() * pilhaDouble.pop());     break;
                         case '-': pilhaDouble.push(-pilhaDouble.pop() + pilhaDouble.pop());    break;
                         case '/': pilhaDouble.push(1 / pilhaDouble.pop() * pilhaDouble.pop()); break;
+                        case '^':  double expoente =pilhaDouble.pop();
+                        pilhaDouble.push(Math.pow(pilhaDouble.pop(), expoente)); break;
                     }
                 } else if(Character.isDigit(ch)) {
                     pilhaDouble.push(0);
@@ -36,7 +38,7 @@ public class Evaluate {
         }
 
         private static boolean isOperator(char ch) {
-            return ch == '*' || ch == '/' || ch == '+' || ch == '-';
+            return ch == '*' || ch == '/' || ch == '+' || ch == '-'|| ch == '^';
         }
     }
 }

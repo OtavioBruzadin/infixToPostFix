@@ -95,8 +95,13 @@ public class Convertions {
         int nOfVariables = 0;
         for (int i = 0; i < equation.length(); i++) {
             if(Character.isLetter(equation.charAt(i))){
-                variableList.add(String.valueOf(equation.charAt(i)));
-
+                if(variableList.isEmpty()) {
+                    variableList.add(String.valueOf(equation.charAt(i)));
+                }else {
+                if(!variableList.contains(String.valueOf(equation.charAt(i)))){
+                    variableList.add(String.valueOf(equation.charAt(i)));
+                }
+                }
             }
         }
         return turnListIntoArray(variableList);

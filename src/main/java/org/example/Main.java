@@ -16,7 +16,7 @@ class Main{
         String  infixExpression = "";
         String[] variables = new String[0];
         String[] variableValues = new String[0];
-        String PostFixWhitNumbers = null;
+        String PostFixWithNumbers = null;
         System.out.println("1. Entrada da expressão aritmética na notação infixa.\n" +
                 "2. Entrada dos valores numéricos associados às variáveis.\n" +
                 "3. Conversão da expressão, da notação infixa para a notação posfixa, e exibição da expressão\n" +
@@ -25,35 +25,42 @@ class Main{
                 "valores das variáveis).\n" +
                 "5. Encerramento do programa.");
         while (section != 5) {
-            System.out.println("Qual seção deseja acessar?: ");
-            section = scanner.nextInt();
+            try {
+                System.out.println("Qual seção deseja acessar?: ");
+                section = scanner.nextInt();
 
-            if (section == 1) {
-                // exemplo : ((a+(B*c))-D)
-                System.out.println("Qual o valor da expressao infixa ?: ");
-                String infixExpressionInput = scanner.next();
-                infixExpression = infixExpressionInput;
-                System.out.println("The Infix Expression is: " + infixExpression);
+                if (section == 1) {
+                    // exemplo : ((a+(B*c))-D)
+                    System.out.println("Qual o valor da expressao infixa ?: ");
 
-            }
-            if (section == 2) {
+                    String infixExpressionInput = scanner.next();
+                    infixExpression = infixExpressionInput;
+                    System.out.println("A expressao infixa é: " + infixExpression);
 
-                variables = createVariableArray(infixExpression);
-                System.out.println(Arrays.toString(variables));
-                variableValues = assignValuesToLetterVariable(variables);
-                String infixWithNumbers = changeLetterToNum(variableValues, infixExpression, variables);
-                System.out.println("The Infix Expression with numbers is: " + infixWithNumbers);
-            }
-            if (section == 3) {
-                String convertedToPostFix = String.valueOf(covertInfixToPostfix(infixExpression));
-                System.out.println("The Postfix of the given Infix Expression is: " + convertedToPostFix);
+                }
+                if (section == 2) {
 
-                PostFixWhitNumbers = changeLetterToNum(variableValues, convertedToPostFix, variables);
-                System.out.println("The Postfix of the given Infix Expression with numbers is: " + PostFixWhitNumbers);
-            }
-            if(section == 4) {
-                double result = evaluate(PostFixWhitNumbers);
-                System.out.println("The Result is: " + result);
+                    variables = createVariableArray(infixExpression);
+                    System.out.println(Arrays.toString(variables));
+                    variableValues = assignValuesToLetterVariable(variables);
+                    String infixWithNumbers = changeLetterToNum(variableValues, infixExpression, variables);
+                    System.out.println("A expressao Infixa com numeros é: " + infixWithNumbers);
+                }
+                if (section == 3) {
+                    String convertedToPostFix = String.valueOf(covertInfixToPostfix(infixExpression));
+                    System.out.println("A Posfixa da expressão Infixa dada é: " + convertedToPostFix);
+
+                    PostFixWithNumbers = changeLetterToNum(variableValues, convertedToPostFix, variables);
+                    System.out.println("A versao posfixa com numeros é: " + PostFixWithNumbers);
+                }
+                if (section == 4) {
+                    assert PostFixWithNumbers != null;
+                    double result = evaluate(PostFixWithNumbers);
+                    System.out.println("O resultado é: " + result);
+                }
+            }catch ( Exception Exception ){
+                System.out.println("Epa algo deu errado :( , tente novamente! ");
+                break;
             }
         }
         System.out.println("Obrigado por usar nosso software :) ");
